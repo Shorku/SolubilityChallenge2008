@@ -1,0 +1,113 @@
+context {
+  features {
+    key: "dummy0"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+  features {
+    key: "dummy1"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+  features {
+    key: "dummy2"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+  features {
+    key: "dummy3"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+  features {
+    key: "dummy4"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+  features {
+    key: "dummy5"
+    value: {
+      description: "dummy"
+      dtype: DT_FLOAT
+      shape { dim { size: 1 } }
+    }
+  }
+}
+node_sets {
+  key: "atom"
+  value {
+    description: "Atoms in molecule"
+    features {
+      key: "density"
+      value: {
+        dtype: DT_FLOAT
+        shape: { dim: { size: 45 } }
+      }
+    }
+    features {
+      key: "nuc_charge"
+      value: {
+        dtype: DT_FLOAT
+        shape: { dim: { size: 1 } }
+      }
+    }
+  }
+}
+node_sets {
+  key: "link"
+  value {
+    description: "Overlaps between atoms in molecule"
+    features {
+      key: "density"
+      value: {
+        dtype: DT_FLOAT
+        shape: { dim: { size: 81 } }
+      }
+    }
+  }
+}
+edge_sets {
+  key: "atom2link"
+  value {
+    description: "Connects atoms with links"
+    source: "atom"
+    target: "link"
+    features {
+      key: "overlap"
+      value: {
+        dtype: DT_FLOAT
+        shape: { dim: { size: 81 } }
+      }
+    }
+  }
+}
+edge_sets {
+  key: "link2atom"
+  value {
+    description: "Connects links with atoms"
+    source: "link"
+    target: "atom"
+    features {
+      key: "overlap"
+      value: {
+        dtype: DT_FLOAT
+        shape: { dim: { size: 81 } }
+      }
+    }
+  }
+}
