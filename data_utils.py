@@ -195,7 +195,8 @@ def served_input_from_orca(out_file: str,
     idx = serv_arg_name()
 
     for i in range(6):
-        output_tensors[next(idx)] = np.array([0.], dtype=np.float32)
+        output_tensors[next(idx)] = \
+            np.array([0.], dtype=np.float32).reshape((1,1))
     output_tensors[next(idx)] = np.array([1], dtype=np.int32)
     output_tensors[next(idx)] = \
         np.array(adjacency_atom2link_sources, dtype=np.int32)
